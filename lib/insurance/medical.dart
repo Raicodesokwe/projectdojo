@@ -12,7 +12,7 @@ class Medical extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeData = Provider.of<ThemeProvider>(context).darkTheme;
     final numberFormat = new NumberFormat("##,###.00#", "en_US");
-    Color greenColor = const Color(0xFF00AF19);
+   
     final TextStyle cardNumberStyle =
         GoogleFonts.openSans(fontSize: 18, fontWeight: FontWeight.w600);
     Size size = MediaQuery.of(context).size;

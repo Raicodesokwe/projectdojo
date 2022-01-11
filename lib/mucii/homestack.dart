@@ -20,7 +20,7 @@ class BaseInvest extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 16.0, left: 5),
-      height: 150,
+      height: size.height*0.23,
       width: size.width * 0.5 - 20,
       decoration: BoxDecoration(
         boxShadow: [

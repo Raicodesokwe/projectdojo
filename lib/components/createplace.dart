@@ -1,15 +1,12 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'package:projectdojo/services/authservice.dart';
 import 'package:flutter/material.dart';
-import 'package:projectdojo/error_handler.dart';
+
 import 'package:lottie/lottie.dart';
-import 'package:projectdojo/components/Backgroundlogin.dart';
+
 import 'package:projectdojo/jengajina.dart';
-import 'package:projectdojo/theme.dart';
-import 'package:projectdojo/components/Backgrounddetails.dart';
+
 import 'package:projectdojo/components/Backgroundplace.dart';
-import 'package:projectdojo/error_handler.dart';
+
 
 class BodyPlaces extends StatefulWidget {
   // final Registration register;
@@ -203,39 +200,38 @@ class _BodyPlacesState extends State<BodyPlaces> {
                             borderSide: BorderSide(color: greenColor),
                           )),
                       isEmpty: currentSelectedVal == '',
-                      child: new Theme(
-                        data: Theme.of(context)
-                            .copyWith(canvasColor: Colors.greenAccent),
-                        child: DropdownButtonHideUnderline(
-                          child: DropdownButton<String>(
-                              value: currentSelectedVal,
-                              isDense: true,
-                              onChanged: (value) {
-                                setState(() {
-                                  this.currentSelectedVal = value;
-                                  // regimen = Registration(
-                                  //     email: regimen.email,
-                                  //     secondname: regimen.secondname,
-                                  //     phonenumber: regimen.phonenumber,
-                                  //     password: regimen.password,
-                                  //     name: regimen.name,
-                                  //     firstname: regimen.firstname,
-                                  //     dob: regimen.dob,
-                                  //     imgFile: regimen.imgFile,
-                                  //     id: regimen.id,
-                                  //     currentSelectedVal: value);
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton<String>(
+                          
+                          style: TextStyle(color: Colors.black),
+                          dropdownColor: Colors.greenAccent,
+                            value: currentSelectedVal,
+                            isDense: true,
+                            onChanged: (value) {
+                              setState(() {
+                                this.currentSelectedVal = value;
+                                // regimen = Registration(
+                                //     email: regimen.email,
+                                //     secondname: regimen.secondname,
+                                //     phonenumber: regimen.phonenumber,
+                                //     password: regimen.password,
+                                //     name: regimen.name,
+                                //     firstname: regimen.firstname,
+                                //     dob: regimen.dob,
+                                //     imgFile: regimen.imgFile,
+                                //     id: regimen.id,
+                                //     currentSelectedVal: value);
 
-                                  state.didChange(value);
-                                  //updates the field's state to a new value
-                                });
-                                //this keyword reps an implicit object pointing to current class object
-                                //eliminates confusion between class attributes and parameters with same name
-                              },
-                              items: _counties.map((e) {
-                                return DropdownMenuItem(
-                                    value: e, child: Text(e));
-                              }).toList()),
-                        ),
+                                state.didChange(value);
+                                //updates the field's state to a new value
+                              });
+                              //this keyword reps an implicit object pointing to current class object
+                              //eliminates confusion between class attributes and parameters with same name
+                            },
+                            items: _counties.map((e) {
+                              return DropdownMenuItem(
+                                  value: e, child: Text(e));
+                            }).toList()),
                       ),
                     );
                   },

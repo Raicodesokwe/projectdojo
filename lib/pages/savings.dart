@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:lottie/lottie.dart';
+
 import 'package:projectdojo/savings/personalsavingshome.dart';
 
 class Savings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Color greenColor = const Color(0xFF00AF19);
+    
     Size size = MediaQuery.of(context).size;
     final numberFormat = new NumberFormat("##,###.00#", "en_US");
     final TextStyle cardNumberStyle =

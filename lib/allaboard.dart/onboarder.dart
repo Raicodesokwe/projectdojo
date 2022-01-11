@@ -1,20 +1,15 @@
 import 'dart:io';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:projectdojo/components/Backgroundonboarding.dart';
+
 import 'package:projectdojo/createemail.dart';
-import 'package:projectdojo/services/authservice.dart';
+
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:lottie/lottie.dart';
-import 'package:projectdojo/components/Backgroundlogin.dart';
-import 'package:projectdojo/places.dart';
+
 import 'package:projectdojo/allaboard.dart/onboarding.dart';
-import 'package:projectdojo/signup_phonenumber.dart';
-import 'package:projectdojo/theme.dart';
-import 'package:projectdojo/components/Backgrounddetails.dart';
-import 'package:projectdojo/error_handler.dart';
-import 'package:intl/intl.dart';
+
 import 'package:provider/provider.dart';
 
 class BodyOnboarder extends StatefulWidget {
@@ -147,6 +142,7 @@ class _BodyOnboarderState extends State<BodyOnboarder> {
                   'Skip',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
+                    color: Colors.black
                   ),
                 )),
             InkWell(

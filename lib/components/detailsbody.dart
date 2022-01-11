@@ -1,16 +1,18 @@
 import 'dart:io';
 
-import 'package:projectdojo/services/authservice.dart';
-import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
+
 import 'package:lottie/lottie.dart';
-import 'package:projectdojo/components/Backgroundlogin.dart';
-import 'package:projectdojo/places.dart';
+
 import 'package:projectdojo/signup_phonenumber.dart';
-import 'package:projectdojo/theme.dart';
+
 import 'package:projectdojo/components/Backgrounddetails.dart';
-import 'package:projectdojo/error_handler.dart';
+
 import 'package:intl/intl.dart';
+import 'package:shimmer/shimmer.dart';
 
 class BodyDetails extends StatefulWidget {
   final String email;
@@ -60,8 +62,7 @@ class _BodyDetailsState extends State<BodyDetails> {
         context: context,
         initialDate: DateTime(2003),
         firstDate: DateTime(1940),
-        lastDate: DateTime.now().subtract(Duration(days: 6400))
-        );
+        lastDate: DateTime.now().subtract(Duration(days: 6400)));
     if (picked != null && picked != date) {
       print('hello $picked');
       setState(() {
@@ -70,6 +71,7 @@ class _BodyDetailsState extends State<BodyDetails> {
     }
   }
 
+  bool showLoading = false;
   final TextEditingController _firstnameController =
       new TextEditingController();
   final TextEditingController _segundanameController =
@@ -191,44 +193,72 @@ class _BodyDetailsState extends State<BodyDetails> {
                 height: 35.0,
               ),
               GestureDetector(
-                onTap: () {
+                onTap: () async {
                   if (checkFields())
-                    // AuthService()
-                    //     .signUp(
-                    //   email,
-                    //   // imgFile,
-                    //   // //removes excess whitespace at the beginning or end
-                    //   password,
-                    //   // id,
-                    //   // currentSelectedVal,
-                    //   // name,
-                    //   // firstname.trim(),
-                    //   // secondname.trim(),
-                    //   // dob,
-                    //   // phonenumber
-                    // )
-                    //     .then((authResult) {
-                    //   FirebaseFirestore.instance
-                    //       .collection('users')
-                    //       .doc(authResult.user.uid)
-                    //       .set({
-                    //     'firstname': firstname,
-                    //     'secondname': secondname,
-                    //     'dob': dob,
-                    //   }
+                    setState(() {
+                      showLoading = true;
+                    });
+                  try {
+                    UserCredential authA;
 
-                    // }).then((res) {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => PhoneNumberSignup(
-                            widget.email,
-                            widget.password,
-                            widget.id,
-                            widget.currentSelectedVal,
-                            widget.imgFile,
-                            widget.name,
-                            firstname,
-                            secondname,
-                            _dobController.text)));
+                    authA = await FirebaseAuth.instance
+                        .createUserWithEmailAndPassword(
+                            email: widget.email, password: widget.password);
+
+                    final ref = FirebaseStorage.instance
+                        .ref()
+                        .child('user_images')
+                        .child(authA.user.uid + '.jpg');
+                    await ref.putFile(widget.imgFile);
+                    final url = await ref.getDownloadURL();
+                    await FirebaseFirestore.instance
+                        .collection('users')
+                        .doc(authA.user.uid)
+                        .set({
+                      //     //set stores extra user data in a map
+                      'email': widget.email,
+                      'image_url': url,
+                      'id': widget.id,
+                      'currentSelectedVal': widget.currentSelectedVal,
+                      'name': '\$' + widget.name,
+                      'firstname': firstname,
+                      'secondname': secondname,
+                      'dob': _dobController.text,
+                    });
+                  } on FirebaseAuthException catch (e) {
+                    setState(() {
+                      showLoading = false;
+                    });
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(e.message.toString())));
+                  }
+                  // AuthService()
+                  //     .signUp(
+                  //   email,
+                  //   // imgFile,
+                  //   // //removes excess whitespace at the beginning or end
+                  //   password,
+                  //   // id,
+                  //   // currentSelectedVal,
+                  //   // name,
+                  //   // firstname.trim(),
+                  //   // secondname.trim(),
+                  //   // dob,
+                  //   // phonenumber
+                  // )
+                  //     .then((authResult) {
+                  //   FirebaseFirestore.instance
+                  //       .collection('users')
+                  //       .doc(authResult.user.uid)
+                  //       .set({
+                  //     'firstname': firstname,
+                  //     'secondname': secondname,
+                  //     'dob': dob,
+                  //   }
+
+                  // }).then((res) {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => PhoneNumberSignup()));
 
                   //   }).catchError((e) {
                   //     ErrorHandler().errorDialog(context, e);
@@ -242,11 +272,24 @@ class _BodyDetailsState extends State<BodyDetails> {
                     color: greenColor,
                     elevation: 7.0,
                     child: Center(
-                      child: const Text(
-                        'NEXT',
-                        style: TextStyle(
-                            color: Colors.white, fontFamily: 'Trueno'),
-                      ),
+                      child: showLoading
+                          ? Shimmer.fromColors(
+                              baseColor: Colors.green[300],
+                              highlightColor: Colors.green[100],
+                              child: Container(
+                                height: 50,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  color: Colors.green[300],
+                                ),
+                              ),
+                            )
+                          : const Text(
+                              'NEXT',
+                              style: TextStyle(
+                                  color: Colors.white, fontFamily: 'Trueno'),
+                            ),
                     ),
                   ),
                   //materialapp widget is a wrapper of other flutter widgets

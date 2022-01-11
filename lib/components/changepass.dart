@@ -3,11 +3,11 @@ import 'package:lottie/lottie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:projectdojo/components/Backgroundchangepass.dart';
 
-import 'package:projectdojo/places.dart';
+
 
 import 'package:flutter/material.dart';
 
-import 'package:projectdojo/components/Backroundcreateemail.dart';
+
 import 'package:projectdojo/services/authservice.dart';
 
 class BodyPassChange extends StatefulWidget {

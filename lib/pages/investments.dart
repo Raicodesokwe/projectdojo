@@ -176,48 +176,37 @@ class Investments extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  Row(
-                                    children: [
-                                      const Text(
-                                        'Dojo',
-                                        style: TextStyle(
-                                            fontFamily: 'Trueno',
-                                            fontSize: 25.0,
-                                            color: Colors.white),
-                                      ),
-                                      SizedBox(
-                                        width: size.width * 0.01,
-                                      ),
-                                      Container(
-                                          height: 4.0,
-                                          width: 4.0,
-                                          decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Colors.black))
-                                    ],
-                                  ),
+                                  // Row(
+                                  //   children: [
+                                  //     const Text(
+                                  //       'Dojo',
+                                  //       style: TextStyle(
+                                  //           fontFamily: 'Trueno',
+                                  //           fontSize: 25.0,
+                                  //           color: Colors.white),
+                                  //     ),
+                                  //     SizedBox(
+                                  //       width: size.width * 0.02,
+                                  //     ),
+                                  //     // Container(
+                                  //     //     height: 4.0,
+                                  //     //     width: 4.0,
+                                  //     //     decoration: BoxDecoration(
+                                  //     //         shape: BoxShape.circle,
+                                  //     //         color: Colors.black))
+                                  //   ],
+                                  // ),
                                 ],
                               )
                             ])),
                   ),
-                  const SizedBox(
-                    height: 24.0,
-                  ),
+                  SizedBox(height: size.height * 0.025,),
                   GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => StockInvestments()));
                     },
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
+                    child: ListTile(leading:  Container(
                                   height: 54.0,
                                   width: 54.0,
                                   decoration: BoxDecoration(
@@ -228,41 +217,25 @@ class Investments extends StatelessWidget {
                                   child: Center(
                                     child: Text('🚀',
                                         style: TextStyle(fontSize: 30)),
-                                  )),
-                              const SizedBox(
-                                width: 10.0,
-                              ),
-                              Text(
+                                  )),title:  Text(
                                 'Stock investments',
-                                style: GoogleFonts.bigShouldersText(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
-                              ),
-                            ],
-                          ),
-                          Text(r'ksh' + "${numberFormat.format(27802.05)}",
+                                style: GoogleFonts.prompt(
+                                    fontWeight: FontWeight.bold, fontSize: 17),
+                              ),trailing: Text(r'ksh' + "${numberFormat.format(27802.05)}",
                               style: cardNumberStyle.copyWith(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w600,
-                              )),
-                        ],
-                      ),
-                    ),
+                              )),)
+                    
+                    
                   ),
+                  SizedBox(height: size.height * 0.025,),
                   GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => CryptoInvestments()));
                     },
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
+                    child: ListTile(leading:  Container(
                                   height: 54.0,
                                   width: 54.0,
                                   decoration: BoxDecoration(
@@ -273,115 +246,71 @@ class Investments extends StatelessWidget {
                                   child: Center(
                                     child: Text('📈',
                                         style: TextStyle(fontSize: 30)),
-                                  )),
-                              const SizedBox(
-                                width: 10.0,
-                              ),
-                              Container(
-                                width: 120.0,
-                                child: Text(
-                                  'Cryptocurrency investments',
-                                  overflow: TextOverflow.ellipsis,
-                                  style: GoogleFonts.bigShouldersText(
-                                      fontWeight: FontWeight.bold, fontSize: 15),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Text(r'ksh' + "${numberFormat.format(27802.05)}",
+                                  )),title:  Text(
+                                'Cryptocurrency investments',
+                                style: GoogleFonts.prompt(
+                                    fontWeight: FontWeight.bold, fontSize: 17),
+                              ),trailing: Text(r'ksh' + "${numberFormat.format(27802.05)}",
                               style: cardNumberStyle.copyWith(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w600,
-                              )),
-                        ],
-                      ),
-                    ),
+                              )),)
                   ),
+                  SizedBox(height: size.height * 0.025,),
                   GestureDetector(
                      onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => EquityInvestments()));
                     },
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
+                    child:  ListTile(leading:  Container(
                                   height: 54.0,
                                   width: 54.0,
                                   decoration: BoxDecoration(
-                                      color: Colors.greenAccent.withOpacity(0.3),
-                                      borderRadius: BorderRadius.circular(18.0)),
+                                      color:
+                                          Colors.greenAccent.withOpacity(0.3),
+                                      borderRadius:
+                                          BorderRadius.circular(18.0)),
                                   child: Center(
                                     child: Text('🤑',
-                                        style: TextStyle(fontSize: 28)),
-                                  )),
-                              const SizedBox(
-                                width: 10.0,
-                              ),
-                              Text(
-                                'Equity crowdfunding',
-                                style: GoogleFonts.bigShouldersText(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
-                              ),
-                            ],
-                          ),
-                          Text(r'ksh' + "${numberFormat.format(27802.05)}",
+                                        style: TextStyle(fontSize: 30)),
+                                  )),title:  Text(
+                                'Equity Crowdfunding',
+                                style: GoogleFonts.prompt(
+                                    fontWeight: FontWeight.bold, fontSize: 17),
+                              ),trailing: Text(r'ksh' + "${numberFormat.format(27802.05)}",
                               style: cardNumberStyle.copyWith(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w600,
-                              )),
-                        ],
-                      ),
-                    ),
+                              )),)
                   ),
+                  SizedBox(height: size.height * 0.025,),
                   GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => PropertyInvestments()));
                     },
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
+                    child:ListTile(leading:  Container(
                                   height: 54.0,
                                   width: 54.0,
                                   decoration: BoxDecoration(
-                                      color: Colors.greenAccent.withOpacity(0.3),
-                                      borderRadius: BorderRadius.circular(18.0)),
+                                      color:
+                                          Colors.greenAccent.withOpacity(0.3),
+                                      borderRadius:
+                                          BorderRadius.circular(18.0)),
                                   child: Center(
                                     child: Text('💸',
                                         style: TextStyle(fontSize: 30)),
-                                  )),
-                              const SizedBox(
-                                width: 10.0,
-                              ),
-                              Text(
-                                'Property crowdfunding',
-                                style: GoogleFonts.bigShouldersText(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
-                              ),
-                            ],
-                          ),
-                          Text(r'ksh' + "${numberFormat.format(27802.05)}",
+                                  )),title:  Text(
+                                'Property Crowdfunding',
+                                style: GoogleFonts.prompt(
+                                    fontWeight: FontWeight.bold, fontSize: 17),
+                              ),trailing: Text(r'ksh' + "${numberFormat.format(27802.05)}",
                               style: cardNumberStyle.copyWith(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w600,
                               )),
-                        ],
-                      ),
-                    ),
+                              
+                              )
                   ),
                   Container(
                     padding: const EdgeInsets.only(right: 16.0, left: 16.0),

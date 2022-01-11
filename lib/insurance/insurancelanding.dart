@@ -13,7 +13,7 @@ class InsuranceLanding extends StatefulWidget {
 }
 
 class _InsuranceLandingState extends State<InsuranceLanding> {
-  int _rating;
+ 
   @override
   Widget build(BuildContext context) {
     final themeData = Provider.of<ThemeProvider>(context).darkTheme;
@@ -28,7 +28,7 @@ class _InsuranceLandingState extends State<InsuranceLanding> {
           const Color(0xFFFEC18A)
         ], begin: Alignment.topLeft, end: Alignment.bottomRight));
     final numberFormat = new NumberFormat("##,###.00#", "en_US");
-    Color greenColor = const Color(0xFF00AF19);
+    
     final TextStyle cardNumberStyle =
         GoogleFonts.openSans(fontSize: 18, fontWeight: FontWeight.w600);
     final TextStyle cardTextStyle =

@@ -16,8 +16,7 @@ class CustomPageTransitionBuilder extends PageTransitionsBuilder {
       opacity: animation,
       child: child,
     );
-    // TODO: implement buildTransitions
+  
 
-    throw UnimplementedError();
   }
 }

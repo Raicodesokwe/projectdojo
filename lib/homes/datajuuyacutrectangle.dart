@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:projectdojo/equity/custombottomdescription.dart';
+
 import 'package:projectdojo/homes/chinidescription.dart';
 
 class DataTopOfCutRectangle extends StatelessWidget {

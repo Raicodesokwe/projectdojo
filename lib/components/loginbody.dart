@@ -1,16 +1,15 @@
 import 'package:local_auth/local_auth.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:projectdojo/allaboard.dart/onboarder.dart';
 import 'package:projectdojo/error_handler.dart';
+import 'package:projectdojo/mucii/home_page.dart';
 
-import 'package:shimmer/shimmer.dart';
 import 'package:projectdojo/passchange.dart';
 import 'package:projectdojo/services/authservice.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'dart:io';
 import 'package:projectdojo/components/Backgroundlogin.dart';
-import 'package:projectdojo/createemail.dart';
 
 class BodyLogin extends StatefulWidget {
   @override
@@ -54,7 +53,6 @@ class _BodyLoginState extends State<BodyLogin> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     getSecureStorage();
@@ -191,11 +189,8 @@ class _BodyLoginState extends State<BodyLogin> {
     }
   }
 
-  
-
   @override
   Widget build(BuildContext context) {
-   
     Color greenColor = const Color(0xFF00AF19);
     Size size = MediaQuery.of(context).size;
     //provides total height and width of our screen
@@ -346,8 +341,10 @@ class _BodyLoginState extends State<BodyLogin> {
                     if (_useTouchId) {
                       _authenticaterero();
                       AuthService().signIn(email, password, context);
+                     
                     } else {
                       AuthService().signIn(email, password, context);
+                      
                     }
                   }
                 },

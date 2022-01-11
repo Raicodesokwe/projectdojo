@@ -6,14 +6,15 @@ import 'package:projectdojo/bnpl/gridbox.dart';
 import 'package:provider/provider.dart';
 import 'splash_screen.dart';
 import 'package:flutter/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:projectdojo/theme.dart';
 import 'package:projectdojo/services/authservice.dart';
 
 void main() async {
   //this is the root widget
   WidgetsFlutterBinding.ensureInitialized();
-
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -49,7 +50,6 @@ class MyApp extends StatelessWidget {
               child: Consumer<ThemeProvider>(
                   builder: (context, ThemeProvider notifier, child) {
                 return MaterialApp(
-                  
                   theme: notifier.darkTheme
                       ? darkThemeData(context)
                       : lightThemeData(context),

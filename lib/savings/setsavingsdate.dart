@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:intl/intl.dart';
 
 class SetSavingsDate extends StatefulWidget {
@@ -21,7 +21,7 @@ class _SetSavingsDateState extends State<SetSavingsDate> {
     return false;
   }
 
-  var _selecta;
+ 
   final TextEditingController _setDateController = new TextEditingController();
   final TextEditingController _setMoneyController = new TextEditingController();
   DateTime selectedDate = DateTime.now();
@@ -57,8 +57,7 @@ class _SetSavingsDateState extends State<SetSavingsDate> {
   @override
   Widget build(BuildContext context) {
     Color greenColor = const Color(0xFF00AF19);
-    final TextStyle cardNumberStyle =
-        GoogleFonts.openSans(fontSize: 18, fontWeight: FontWeight.w600);
+   
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(

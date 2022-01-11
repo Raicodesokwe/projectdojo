@@ -1,16 +1,14 @@
-import 'package:projectdojo/createemail.dart';
+
 import 'package:projectdojo/details.dart';
 
 import 'package:projectdojo/uploadpicname/photopreview.dart';
-import 'package:projectdojo/services/authservice.dart';
-import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:lottie/lottie.dart';
-import 'package:projectdojo/components/Backgroundlogin.dart';
 
-import 'package:projectdojo/components/Backgrounddetails.dart';
+import 'package:flutter/material.dart';
+
+import 'package:lottie/lottie.dart';
+
 import 'package:projectdojo/uploadpicname/BackgroundRitwa.dart';
-import 'package:projectdojo/error_handler.dart';
+
 import 'dart:io';
 
 class BodyRitwa extends StatefulWidget {
@@ -55,7 +53,6 @@ class _BodyRitwaState extends State<BodyRitwa> {
     return false;
   }
 
-  final TextEditingController _nameController = new TextEditingController();
   File imgFile;
   // String email,
   //     password,
@@ -80,7 +77,7 @@ void _pickedImg(File img) {
 
     // register.name = name;
     Color greenColor = const Color(0xFF00AF19);
-    Size size = MediaQuery.of(context).size;
+  
     //provides total height and width of our screen
     return BackgroundRitwa(
       child: Form(

@@ -1,4 +1,4 @@
-package com.example.projectdojo
+package com.projectdojo.dojofin
 
 import android.content.Context
 import android.os.Bundle

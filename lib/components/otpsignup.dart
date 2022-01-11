@@ -6,9 +6,6 @@ import 'package:lottie/lottie.dart';
 import 'package:pinput/pin_put/pin_put.dart';
 import 'package:projectdojo/components/Backgroundotp.dart';
 import 'package:projectdojo/error_handler.dart';
-import 'package:projectdojo/mucii/home_page.dart';
-import 'package:projectdojo/loginpage.dart';
-import 'package:projectdojo/services/authservice.dart';
 
 class BodyOtp extends StatefulWidget {
   final String phoneNumber;
@@ -173,7 +170,7 @@ class _BodyOtpState extends State<BodyOtp> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    
     super.initState();
     _verifyPhoneNumber();
   }

@@ -1,13 +1,12 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:lottie/lottie.dart';
+
 import 'package:flutterwave/flutterwave.dart';
-import 'package:projectdojo/error_handler.dart';
+import 'package:projectdojo/loginpage.dart';
+
 import 'package:projectdojo/pages/investments.dart';
 import 'package:projectdojo/pages/moreservices.dart';
 import 'package:projectdojo/pages/profile.dart';
@@ -18,7 +17,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutterwave/models/responses/charge_response.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:projectdojo/services/successdialog.dart';
+
 import 'package:shimmer/shimmer.dart';
 import '../services/changethemebutton.dart';
 import 'homesave.dart';
@@ -35,8 +34,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  
-
   final user = FirebaseAuth.instance.currentUser;
   final String txref = "My_unique_transaction_reference_123";
   final String amount = "200";
@@ -70,86 +67,82 @@ class _HomePageState extends State<HomePage> {
           ? CupertinoPageScaffold()
           : Scaffold(
               appBar: AppBar(
-                title: Row(
-                  children: [
-                    FutureBuilder(
-                      future: FirebaseFirestore.instance
-                          .collection('users')
-                          .doc(user.uid)
-                          .get(),
-                      builder: (ctx, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return Shimmer.fromColors(
-                            baseColor: Colors.green[300],
-                            highlightColor: Colors.green[100],
-                            child: CircleAvatar(
-                              radius: 20,
-                              backgroundColor: Colors.green[300],
-                            ),
-                          );
-                        } else {
-                          final documents = snapshot.data;
-                          return Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
-                                BoxShadow(
-                                    blurRadius: 2,
-                                    spreadRadius: 2,
-                                    color: Colors.black.withOpacity(0.2))
-                              ],
-                            ),
-                            child: CircleAvatar(
-                              foregroundColor: Colors.green[300],
-                              backgroundImage:
-                                  NetworkImage(documents['image_url']),
-                              radius: 20,
-                            ),
-                          );
-                          // CircleAvatar(
-                          //   radius: 24,
-                          //   backgroundImage: NetworkImage(documents['image_url']),
-                          // );
-                        }
-                      },
-                    ),
-                    const SizedBox(
-                      width: 10.0,
-                    ),
-                    Text(
-                      'Hi Ricko',
-                      style: GoogleFonts.spartan(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Theme.of(context).textTheme.headline6.color),
-                    ),
-                  ],
+                title: Container(
+                  width: 159,
+                  child: Row(
+                    children: [
+                      FutureBuilder(
+                        
+                        future: FirebaseFirestore.instance
+                            .collection('users')
+                            .doc(user.uid)
+                            .get(),
+                        builder: (ctx, snapshot) {
+                          if (!snapshot.hasData ||
+                              snapshot.data == null ||
+                              snapshot.hasError ||
+                              snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                            return Shimmer.fromColors(
+                              baseColor: Colors.green[300],
+                              highlightColor: Colors.green[100],
+                              child: CircleAvatar(
+                                radius: 20,
+                                backgroundColor: Colors.green[300],
+                              ),
+                            );
+                          } else {
+                            final documents = snapshot.data;
+                            return Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: [
+                                  BoxShadow(
+                                      blurRadius: 2,
+                                      spreadRadius: 2,
+                                      color: Colors.black.withOpacity(0.2))
+                                ],
+                              ),
+                              child: CircleAvatar(
+                                foregroundColor: Colors.green[300],
+                                backgroundImage:
+                                    NetworkImage(documents['image_url']),
+                                radius: 20,
+                              ),
+                            );
+                            // CircleAvatar(
+                            //   radius: 24,
+                            //   backgroundImage: NetworkImage(documents['image_url']),
+                            // );
+                          }
+                        },
+                      ),
+                      SizedBox(
+                        width: size.width * 0.01,
+                      ),
+                      Text(
+                        'Hi Ricko',
+                        style: GoogleFonts.spartan(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Theme.of(context).textTheme.headline6.color),
+                      ),
+                    ],
+                  ),
                 ),
                 backgroundColor: Colors.transparent,
                 elevation: 0,
                 actions: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(FontAwesomeIcons.bell,
-                        // Icons.notifications_none,
-
-                        color: Colors.green),
-                    iconSize: 25.0,
-                  ),
-                  // Container(
-                  //   height: 45.0,
-                  //   width: 45.0,
-                  //   decoration: BoxDecoration(
-                  //       color: Colors.greenAccent.withOpacity(0.3),
-                  //       borderRadius: BorderRadius.circular(18.0)),
-                  //   child:
                   DropdownButton(
                     underline: Container(),
                     onChanged: (onitem) {
                       //this function gets the item identifier which is the value we specified in the value parameter
                       if (onitem == 'logout') {
                         AuthService().signOut();
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LoginPage()));
                         //firebase db rules for security
                         //lock db down to only authenticated users
                         //we need scrollable list of eixsting messages
@@ -471,7 +464,8 @@ class _HomePageState extends State<HomePage> {
                                         ],
                                       ),
                                       Column(
-                                        crossAxisAlignment: CrossAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
@@ -579,5 +573,3 @@ class _HomePageState extends State<HomePage> {
         response.data.txRef == this.txref;
   }
 }
-
-

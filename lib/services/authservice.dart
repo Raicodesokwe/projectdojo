@@ -1,11 +1,12 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:projectdojo/mucii/home_page.dart';
 import 'package:projectdojo/services/navbar.dart';
 import 'package:projectdojo/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:projectdojo/error_handler.dart';
-import 'package:projectdojo/mucii/home_page.dart';
-import 'dart:io';
+
 import 'package:projectdojo/loginpage.dart';
 
 class AuthService {
@@ -31,12 +32,16 @@ class AuthService {
   }
 
   signIn(String email, String password, context) async {
-    await FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email, password: password)
-        .then((val) => print('signed in'))
-        .catchError((e) {
-      ErrorHandler().errorDialog(context, e);
-    });
+    try {
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+          Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) => BottomNavBar()));
+    } on FirebaseAuthException catch (e) {
+       ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.message.toString())));
+    }
+        
     //then registers callbacks to be called when the future is completed
     //when the future completes with a value the onvalue callback shall be called with that value
   }

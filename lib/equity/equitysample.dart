@@ -78,11 +78,11 @@ class _AppBarNetflix extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  // TODO: implement maxExtent
+  
   double get maxExtent => maxExtended;
 
   @override
-  // TODO: implement minExtent
+  
   double get minExtent => minExtended;
 
   @override

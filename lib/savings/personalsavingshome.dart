@@ -6,9 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projectdojo/savings/savingsimage.dart';
 import 'package:projectdojo/savings/setsavingsdate.dart';
-import 'package:provider/provider.dart';
 
-import '../theme.dart';
 
 class PersonalSavingsHome extends StatelessWidget {
   final _turo = GlobalKey<FormState>();
@@ -42,7 +40,7 @@ class PersonalSavingsHome extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     final TextStyle cardTextStyle =
         GoogleFonts.spartan(color: Colors.white, fontWeight: FontWeight.w600);
-    final themeColor = Provider.of<ThemeProvider>(context).darkTheme;
+    
     Color greenColor = const Color(0xFF00AF19);
     return SafeArea(
       child: Scaffold(

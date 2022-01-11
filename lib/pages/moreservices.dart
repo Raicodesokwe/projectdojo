@@ -97,7 +97,7 @@ class MoreServices extends StatelessWidget {
                             padding: EdgeInsets.only(left: 4),
                             margin: const EdgeInsetsDirectional.only(
                                 start: 4, end: 4, top: 4),
-                            height: 200,
+                            height: size.height * 0.3,
                             width: size.width * 0.5 - 20,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
@@ -191,7 +191,7 @@ class MoreServices extends StatelessWidget {
                           ),
                           margin: const EdgeInsetsDirectional.only(
                               start: 4, end: 4, top: 4),
-                          height: 200,
+                          height: size.height * 0.3,
                           width: size.width * 0.5 - 20,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
