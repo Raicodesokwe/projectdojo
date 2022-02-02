@@ -113,6 +113,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
+  dio:
+    dependency: "direct main"
+    description:
+      name: dio
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.4"
   equatable:
     dependency: transitive
     description:
@@ -237,13 +244,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.0"
-  flutter_sparkline:
-    dependency: "direct main"
-    description:
-      name: flutter_sparkline
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -254,13 +254,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutterwave:
-    dependency: "direct main"
-    description:
-      name: flutterwave
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.3-dev.4"
   font_awesome_flutter:
     dependency: "direct main"
     description:
@@ -574,13 +567,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.2"
-  tripledes:
-    dependency: transitive
-    description:
-      name: tripledes
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.0"
   typed_data:
     dependency: transitive
     description:
@@ -602,13 +588,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
-  webview_flutter:
-    dependency: transitive
-    description:
-      name: webview_flutter
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.9"
   win32:
     dependency: transitive
     description:

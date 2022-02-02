@@ -31,7 +31,7 @@ app.get("/get_account", function (req, resp) {
 
 });
 app.get("/get_assets", function (req, resp) {
-
+   
     var req = unirest('GET', 'https://paper-api.alpaca.markets/v2/assets')
         .headers({
             'APCA-API-SECRET-KEY': secret,

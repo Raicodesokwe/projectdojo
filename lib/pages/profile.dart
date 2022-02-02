@@ -5,12 +5,28 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shimmer/shimmer.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
+  @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  Future tambo;
+  final user = FirebaseAuth.instance.currentUser;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    tambo=FirebaseFirestore.instance
+                              .collection('users')
+                              .doc(user.uid)
+                              .get();
+  }
   @override
   Widget build(BuildContext context) {
     final TextStyle cardTextStyle =
         GoogleFonts.spartan( fontWeight: FontWeight.w600,fontSize: 18);
-    final user = FirebaseAuth.instance.currentUser;
+    
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -40,10 +56,7 @@ class Profile extends StatelessWidget {
                     Column(
                       children: [
                         FutureBuilder(
-                          future: FirebaseFirestore.instance
-                              .collection('users')
-                              .doc(user.uid)
-                              .get(),
+                          future: tambo,
                           builder: (ctx, snapshot) {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {

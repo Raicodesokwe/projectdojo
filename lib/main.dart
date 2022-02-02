@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projectdojo/allaboard.dart/onboarding.dart';
+import 'package:projectdojo/alpaca/trading.dart';
 import 'package:projectdojo/bnpl/gridbox.dart';
 import 'package:provider/provider.dart';
 import 'splash_screen.dart';
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
                 ChangeNotifierProvider(
                   create: (_) => GridBox(),
                 ),
+              
               ],
               child: Consumer<ThemeProvider>(
                   builder: (context, ThemeProvider notifier, child) {
