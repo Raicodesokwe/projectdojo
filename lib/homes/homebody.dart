@@ -12,8 +12,9 @@ class HomeBody extends StatelessWidget {
     final TextStyle cardNumberStyle =
         GoogleFonts.openSans(fontSize: 18, fontWeight: FontWeight.w600);
     return Container(
+      
       // height: size.height,
-      // height: 800,
+    
       // color: Colors.red,
       // padding: EdgeInsets.only(top: 20),
       child: Column(
@@ -54,7 +55,7 @@ class HomeBody extends StatelessWidget {
               ],
             ),
           ),
-          // const SizedBox(height: 10.0,),
+           SizedBox(height: size.height *0.05,),
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Container(
@@ -69,7 +70,7 @@ class HomeBody extends StatelessWidget {
               ),
             ),
           ),
-          
+          SizedBox(height: size.height *0.05,),
              Card(
                elevation: 10.0,
               child: Padding(
@@ -151,14 +152,14 @@ class HomeBody extends StatelessWidget {
               ),
             ),
           
-          const SizedBox(
-            height: 25.0,
-          ),
+          SizedBox(height: size.height *0.07,),
           Padding(
             padding: const EdgeInsets.only(left: 15.0, right: 15.0),
             child: Text(
+              
               'This 4 bedroom townhouse in Migaa estate,Kiambu county is a modern showpiece with ample natural light and high end amenities. The projected rental income of this property is around ksh 56,000. Come invest with us',
               style: TextStyle(
+                letterSpacing: 2,
                   // color: Colors.green[700],
                   fontFamily: 'Lato',
                   fontWeight: FontWeight.w300,

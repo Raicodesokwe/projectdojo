@@ -331,6 +331,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.3"
+  line_icons:
+    dependency: "direct main"
+    description:
+      name: line_icons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
   local_auth:
     dependency: "direct main"
     description:
@@ -585,6 +592,13 @@ packages:
     dependency: transitive
     description:
       name: vector_math
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
+  web_socket_channel:
+    dependency: "direct main"
+    description:
+      name: web_socket_channel
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"

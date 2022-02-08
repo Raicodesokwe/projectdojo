@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/widgets.dart';
+import 'package:projectdojo/History/accountactivity.dart';
 import 'package:projectdojo/investamodelo/cryptoinvestments.dart';
 import 'package:projectdojo/investamodelo/equityinvestments.dart';
 import 'package:projectdojo/investamodelo/propertyinvestments.dart';
@@ -98,59 +99,7 @@ class Investments extends StatelessWidget {
                                         fontSize: 20,
                                         fontWeight: FontWeight.w600,
                                       )),
-                                  // SizedBox(width: 40,),
-                                  //     Container(
-                                  //   width: 100,
-                                  //   child:
-                                  //   Stack(
-                                  //     children: [
-                                  //       Container(
-                                  //           height: 54.0,
-                                  //           width: 54.0,
-                                  //           decoration: BoxDecoration(
-                                  //               color: Colors.greenAccent
-                                  //                   .withOpacity(0.3),
-                                  //               borderRadius:
-                                  //                   BorderRadius.circular(
-                                  //                       18.0)),
-                                  //           child:  Image.asset("assets/apple.png",alignment: Alignment.center,)
-                                  //           ),
-                                  //       Positioned(
-                                  //         left: 40,
-                                  //         child: Container(
-                                  //             height: 54.0,
-                                  //             width: 54.0,
-                                  //             decoration: BoxDecoration(
-                                  //                 color: Colors.greenAccent
-                                  //                     .withOpacity(0.3),
-                                  //                 borderRadius:
-                                  //                     BorderRadius.circular(
-                                  //                         18.0)),
-                                  //             child: Center(
-                                  //               child: Text('🚀',
-                                  //                   style: TextStyle(
-                                  //                       fontSize: 30)),
-                                  //             )),
-                                  //       ),
-                                  //       // Container(
-                                  //       //     height: 54.0,
-                                  //       //     width: 54.0,
-                                  //       //     decoration: BoxDecoration(
-                                  //       //         color: Colors.greenAccent
-                                  //       //             .withOpacity(0.3),
-                                  //       //         borderRadius:
-                                  //       //             BorderRadius.circular(
-                                  //       //                 18.0)),
-                                  //       //     child: Center(
-                                  //       //       child: Text('🚀',
-                                  //       //           style: TextStyle(
-                                  //       //               fontSize: 30)),
-                                  //       //     )),
-                                  //     ],
-                                  //   ),
-                                  // ),
-                                  //   ],
-                                  // ),
+                             
                                 ],
                               ),
                               Column(
@@ -176,26 +125,7 @@ class Investments extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  // Row(
-                                  //   children: [
-                                  //     const Text(
-                                  //       'Dojo',
-                                  //       style: TextStyle(
-                                  //           fontFamily: 'Trueno',
-                                  //           fontSize: 25.0,
-                                  //           color: Colors.white),
-                                  //     ),
-                                  //     SizedBox(
-                                  //       width: size.width * 0.02,
-                                  //     ),
-                                  //     // Container(
-                                  //     //     height: 4.0,
-                                  //     //     width: 4.0,
-                                  //     //     decoration: BoxDecoration(
-                                  //     //         shape: BoxShape.circle,
-                                  //     //         color: Colors.black))
-                                  //   ],
-                                  // ),
+                               
                                 ],
                               )
                             ])),
@@ -233,7 +163,7 @@ class Investments extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => CryptoInvestments()));
+                          builder: (context) => AccountActivities()));
                     },
                     child: ListTile(leading:  Container(
                                   height: 54.0,

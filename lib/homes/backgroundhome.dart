@@ -12,7 +12,7 @@ class BackgroundHome extends StatelessWidget {
       top: 0,
       child: Image(
         image: AssetImage(
-          "assets/hoteli.jpg",
+          "assets/student.jpg",
         ),
         fit: BoxFit.cover,
       ),

@@ -36,11 +36,11 @@ dependencies:
   flutter_secure_storage:
   shimmer:
   google_fonts:
- 
+  line_icons:
   curved_navigation_bar:
   provider:
   shared_preferences:
- 
+  web_socket_channel:
   animations:
   fl_chart:
   font_awesome_flutter:
@@ -80,6 +80,11 @@ flutter:
     - assets/bottomright.png
     - assets/revolutvault.png
     - assets/hoteli.jpg
+    - assets/tesla.png
+    - assets/sq.png
+    - assets/hood.png
+    - assets/student.jpg
+    - assets/apart.jpg
     
     
     - assets/contact.json

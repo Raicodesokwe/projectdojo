@@ -156,11 +156,38 @@ class _PropertyInvestmentsState extends State<PropertyInvestments> {
                                                                   BorderRadius
                                                                       .circular(
                                                                           18.0)),
-                                                          child: Center(
-                                                            child: Icon(
-                                                                FontAwesomeIcons
-                                                                    .home),
-                                                          )),
+                                                          child:  Container(
+                                                            height: 54.0,
+                                                            width: 54.0,
+                                                            decoration: BoxDecoration(
+                                                                gradient:
+                                                                    LinearGradient(
+                                                                        colors: [
+                                                                      const Color(
+                                                                          0xffE0ABF2),
+                                                                      greenColor
+                                                                    ]),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            18.0)),
+                                                            child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            18.0),
+                                                                child:
+                                                                    Image.asset(
+                                                                  "assets/student.jpg",
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ))
+                                                            // Center(
+                                                            //     child: Icon(
+                                                            //         FontAwesomeIcons
+                                                            //             .home))
+
+                                                            ),),
                                                       Positioned(
                                                         left: 30,
                                                         child: Container(
@@ -281,7 +308,7 @@ class _PropertyInvestmentsState extends State<PropertyInvestments> {
               SliverList(
                   delegate: SliverChildListDelegate([
                 Container(
-                  height: 800,
+                  
                   width: double.infinity,
                   decoration: BoxDecoration(
                     // color: Theme.of(context).scaffoldBackgroundColor,
@@ -295,6 +322,241 @@ class _PropertyInvestmentsState extends State<PropertyInvestments> {
                     children: [
                       Icon(
                         FontAwesomeIcons.windowMinimize,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 8.0, right: 8.0, top: 8.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => PropInvest()));
+                          },
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15)),
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 4),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                      height: 120.0,
+                                      width: 120.0,
+                                      decoration: BoxDecoration(
+                                         
+                                          borderRadius:
+                                              BorderRadius.circular(18.0)),
+                                      child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(18.0),
+                                          child: Image.asset(
+                                            "assets/student.jpg",
+                                            fit: BoxFit.cover,
+                                          )
+                                          )
+                                          ),
+                                ),
+                                // const SizedBox(
+                                //   width: 5.0,
+                                // ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    // mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        // alignment: Alignment.bottomRight,
+                                        height: 50,
+                                        width: 140,
+                                        child: Text(
+                                          'Student hostels',
+                                          // overflow: TextOverflow.ellipsis,
+                                          style: GoogleFonts.bigShouldersText(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20),
+                                        ),
+                                      ),
+                                      Text(
+                                        'Madaraka',
+                                        style: TextStyle(
+                                            fontFamily: 'Lato',
+                                            fontWeight: FontWeight.w100,
+                                            fontSize: 15),
+                                      ),
+                                      Text(
+                                          r'ksh' +
+                                              "${numberFormat.format(27802.05)}",
+                                          style: cardNumberStyle.copyWith(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w600,
+                                          )),
+                                      const SizedBox(
+                                        height: 5.0,
+                                      ),
+                                     
+                                      Text(
+                                        "10% return in 6 months",
+                                        style: GoogleFonts.spartan(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.green[300],
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Icon(
+                                            FontAwesomeIcons.arrowCircleUp,
+                                            color: Colors.green[300],
+                                          ),
+                                          const SizedBox(
+                                            width: 30.0,
+                                          ),
+                                          Chip(
+                                            label: Text(
+                                              'sold out',
+                                              style: TextStyle(
+                                                  fontFamily: 'Lato',
+                                                  color: Colors.red,
+                                                  fontWeight: FontWeight.w100,
+                                                  fontSize: 9),
+                                            ),
+                                            backgroundColor: Colors.redAccent
+                                                .withOpacity(0.1),
+                                          )
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                       
+                            
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 8.0, right: 8.0, top: 8.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => PropInvest()));
+                          },
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15)),
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 15, vertical: 4),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                      height: 120.0,
+                                      width: 120.0,
+                                      decoration: BoxDecoration(
+                                          
+                                          borderRadius:
+                                              BorderRadius.circular(18.0)),
+                                      child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(18.0),
+                                          child: Image.asset(
+                                            "assets/apart.jpg",
+                                            fit: BoxFit.cover,
+                                          )
+                                          )
+                                          ),
+                                ),
+                                // const SizedBox(
+                                //   width: 5.0,
+                                // ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    // mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        // alignment: Alignment.bottomRight,
+                                        height: 50,
+                                        width: 140,
+                                        child: Text(
+                                          'Modern apartment',
+                                          // overflow: TextOverflow.ellipsis,
+                                          style: GoogleFonts.bigShouldersText(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20),
+                                        ),
+                                      ),
+                                      Text(
+                                        'Rironi',
+                                        style: TextStyle(
+                                            fontFamily: 'Lato',
+                                            fontWeight: FontWeight.w100,
+                                            fontSize: 15),
+                                      ),
+                                      Text(
+                                          r'ksh' +
+                                              "${numberFormat.format(27802.05)}",
+                                          style: cardNumberStyle.copyWith(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w600,
+                                          )),
+                                      const SizedBox(
+                                        height: 5.0,
+                                      ),
+                                     
+                                      Text(
+                                        "15% return in 10 months",
+                                        style: GoogleFonts.spartan(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.green[300],
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Icon(
+                                            FontAwesomeIcons.arrowCircleUp,
+                                            color: Colors.green[300],
+                                          ),
+                                          const SizedBox(
+                                            width: 30.0,
+                                          ),
+                                          Chip(
+                                            label: Text(
+                                              'sold out',
+                                              style: TextStyle(
+                                                  fontFamily: 'Lato',
+                                                  color: Colors.red,
+                                                  fontWeight: FontWeight.w100,
+                                                  fontSize: 9),
+                                            ),
+                                            backgroundColor: Colors.redAccent
+                                                .withOpacity(0.1),
+                                          )
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                           
+                          ),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(
@@ -454,189 +716,8 @@ class _PropertyInvestmentsState extends State<PropertyInvestments> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 8.0, right: 8.0, top: 5.0),
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          margin: const EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 4),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                        height: 54.0,
-                                        width: 54.0,
-                                        decoration: BoxDecoration(
-                                            gradient: LinearGradient(colors: [
-                                              const Color(0xffE0ABF2),
-                                              greenColor
-                                            ]),
-                                            borderRadius:
-                                                BorderRadius.circular(18.0)),
-                                        child: Center(
-                                            child:
-                                                Icon(FontAwesomeIcons.home))),
-                                  ),
-                                  const SizedBox(
-                                    width: 10.0,
-                                  ),
-                                  Column(
-                                    children: [
-                                      Container(
-                                        width: 120.0,
-                                        child: Text(
-                                          '25 student accomodation hostels',
-                                          overflow: TextOverflow.ellipsis,
-                                          style: GoogleFonts.bigShouldersText(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20),
-                                        ),
-                                      ),
-                                      Text(
-                                        'Jogoo Road',
-                                        style: TextStyle(
-                                            fontFamily: 'Lato',
-                                            fontWeight: FontWeight.w100,
-                                            fontSize: 15),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                        r'ksh' +
-                                            "${numberFormat.format(27802.05)}",
-                                        style: cardNumberStyle.copyWith(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w600,
-                                        )),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "15%",
-                                          style: GoogleFonts.spartan(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w700,
-                                            color: Colors.green[300],
-                                          ),
-                                        ),
-                                        Icon(
-                                          FontAwesomeIcons.arrowCircleUp,
-                                          color: Colors.green[300],
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 8.0, right: 8.0, top: 5.0),
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          margin: const EdgeInsets.symmetric(
-                              horizontal: 15, vertical: 4),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                        height: 54.0,
-                                        width: 54.0,
-                                        decoration: BoxDecoration(
-                                            gradient: LinearGradient(colors: [
-                                              Colors.redAccent,
-                                              const Color(0xff23b6e6),
-                                              const Color(0xff02d39a),
-                                            ]),
-                                            borderRadius:
-                                                BorderRadius.circular(18.0)),
-                                        child: Center(
-                                            child:
-                                                Icon(FontAwesomeIcons.home))),
-                                  ),
-                                  const SizedBox(
-                                    width: 10.0,
-                                  ),
-                                  Column(
-                                    children: [
-                                      Container(
-                                        width: 120,
-                                        child: Text(
-                                          '5 acre plot of land',
-                                          overflow: TextOverflow.ellipsis,
-                                          style: GoogleFonts.bigShouldersText(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20),
-                                        ),
-                                      ),
-                                      Text(
-                                        'Juja',
-                                        style: TextStyle(
-                                            fontFamily: 'Lato',
-                                            fontWeight: FontWeight.w100,
-                                            fontSize: 15),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                        r'ksh' +
-                                            "${numberFormat.format(27802.05)}",
-                                        style: cardNumberStyle.copyWith(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w600,
-                                        )),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "15%",
-                                          style: GoogleFonts.spartan(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w700,
-                                            color: Colors.red[300],
-                                          ),
-                                        ),
-                                        Icon(
-                                          FontAwesomeIcons.arrowCircleDown,
-                                          color: Colors.red[300],
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
+                    
+                      
                     ],
                   ),
                 )

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:projectdojo/alpaca/account.dart';
 import 'package:projectdojo/alpaca/positions.dart';
 
+import 'activities.dart';
 import 'assets.dart';
 
 class Debouncer {
@@ -96,5 +97,16 @@ class TradingService {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('Something went wrong')));
     }
+  }
+  Future<List<Activities>> getActivities(context) async {
+    List<Activities> tara = [];
+    try {
+        response = await dio.get(baseUrl + "account_activities");
+      print(response.data.toString());
+      final List activities = json.decode(response.data);
+      tara=activities.map((json) => Activities.fromJson(json)).toList();
+    } on DioError catch (e) {
+    }
+    return tara;
   }
 }

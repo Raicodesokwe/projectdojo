@@ -102,7 +102,7 @@ class Medical extends StatelessWidget {
               children: [
                 Stack(children: [
                   Container(
-                      height: 200,
+                      height: size.height * 0.28,
                       // width: double.infinity,
                       decoration: decorator.copyWith(
                         boxShadow: [
@@ -137,7 +137,7 @@ class Medical extends StatelessWidget {
                             // ),
 
                             Container(
-                              height: 40,
+                              height: size.height*0.06,
                               // width: 200,
                               child: Text('23 offers',
                                   style: TextStyle(

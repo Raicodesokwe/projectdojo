@@ -13,7 +13,6 @@ class InsuranceLanding extends StatefulWidget {
 }
 
 class _InsuranceLandingState extends State<InsuranceLanding> {
- 
   @override
   Widget build(BuildContext context) {
     final themeData = Provider.of<ThemeProvider>(context).darkTheme;
@@ -28,7 +27,7 @@ class _InsuranceLandingState extends State<InsuranceLanding> {
           const Color(0xFFFEC18A)
         ], begin: Alignment.topLeft, end: Alignment.bottomRight));
     final numberFormat = new NumberFormat("##,###.00#", "en_US");
-    
+
     final TextStyle cardNumberStyle =
         GoogleFonts.openSans(fontSize: 18, fontWeight: FontWeight.w600);
     final TextStyle cardTextStyle =
@@ -86,7 +85,7 @@ class _InsuranceLandingState extends State<InsuranceLanding> {
                 ),
                 Stack(children: [
                   Container(
-                      height: 200,
+                      height: size.height * 0.26,
                       // width: double.infinity,
                       decoration: decorator.copyWith(
                         boxShadow: [
@@ -168,7 +167,7 @@ class _InsuranceLandingState extends State<InsuranceLanding> {
                                   width: 10.0,
                                 ),
                                 Container(
-                                  height: 60,
+                                  height: size.height * 0.08,
                                   width: 200,
                                   child: Text(
                                       'Tap here to help you identify areas where you need protection',
@@ -330,62 +329,223 @@ class _InsuranceLandingState extends State<InsuranceLanding> {
                         const SizedBox(
                           width: 20.0,
                         ),
-                        Container(
-                          height: 150,
-                          width: size.width * 0.5 - 20,
-                          padding: const EdgeInsets.only(left: 5.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(32.0),
-                            color: themeData
-                                ? const Color(0xFFFEC18A)
-                                // const Color(0xff23b6e6)
-                                // const Color(0xff02d39a)
-                                : Theme.of(context).scaffoldBackgroundColor,
-                            // color: Theme.of(context).scaffoldBackgroundColor,
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 12,
-                                  spreadRadius: 8,
-                                  color: Colors.black.withOpacity(0.2))
-                            ],
+                        Stack(clipBehavior: Clip.none, children: [
+                          Container(
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 10.0, right: 10.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Car',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontFamily: 'Trueno',
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 17)),
+                                  const SizedBox(
+                                    height: 8.0,
+                                  ),
+                                  Text(
+                                      'Check out the best car insurance policies available',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontFamily: 'Lato',
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 13)),
+                                  const SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  Text("from Ksh 500/mo",
+                                      style: cardNumberStyle.copyWith(
+                                        color: Colors.black,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w800,
+                                      )),
+                                ],
+                              ),
+                            ),
+                            height: 150,
+                            width: size.width * 0.5 - 20,
+                            padding: const EdgeInsets.only(left: 5.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(32.0),
+                              color: themeData
+                                  ? const Color(0xFFFEC18A)
+                                  // const Color(0xff23b6e6)
+                                  // const Color(0xff02d39a)
+                                  : Theme.of(context).scaffoldBackgroundColor,
+                              // color: Theme.of(context).scaffoldBackgroundColor,
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 12,
+                                    spreadRadius: 8,
+                                    color: Colors.black.withOpacity(0.2))
+                              ],
+                            ),
                           ),
-                        ),
+                          Positioned(
+                              left: 30,
+                              top: -20,
+                              // height: 10,
+                              child: Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                    color: Colors.cyanAccent,
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10.0))),
+                                child: Center(
+                                  child: Icon(FontAwesomeIcons.car),
+                                ),
+                              ))
+                        ]),
                         const SizedBox(
                           width: 20.0,
                         ),
-                        Container(
-                          height: 150,
-                          width: size.width * 0.5 - 20,
-                          padding: const EdgeInsets.only(left: 5.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(32.0),
-                            color: Theme.of(context).scaffoldBackgroundColor,
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 12,
-                                  spreadRadius: 8,
-                                  color: Colors.black.withOpacity(0.2))
-                            ],
+                        Stack(clipBehavior: Clip.none, children: [
+                          Container(
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 10, left: 10.0, right: 10.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('House',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontFamily: 'Trueno',
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 17)),
+                                  const SizedBox(
+                                    height: 8.0,
+                                  ),
+                                  Text(
+                                      'Insure your house against any damage that may occur',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontFamily: 'Lato',
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 13)),
+                                  const SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  Text("from Ksh 750/mo",
+                                      style: cardNumberStyle.copyWith(
+                                        color: Colors.black,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w800,
+                                      )),
+                                ],
+                              ),
+                            ),
+                            height: 150,
+                            width: size.width * 0.5 - 20,
+                            padding: const EdgeInsets.only(left: 5.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(32.0),
+                              color: themeData
+                                  ? const Color(0xFFFEC18A)
+                                  // const Color(0xff23b6e6)
+                                  // const Color(0xff02d39a)
+                                  : Theme.of(context).scaffoldBackgroundColor,
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 12,
+                                    spreadRadius: 8,
+                                    color: Colors.black.withOpacity(0.2))
+                              ],
+                            ),
                           ),
-                        ),
+                          Positioned(
+                              left: 30,
+                              top: -20,
+                              // height: 10,
+                              child: Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                    color: Colors.cyanAccent,
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10.0))),
+                                child: Center(
+                                  child: Icon(FontAwesomeIcons.home),
+                                ),
+                              ))
+                        ]),
                         const SizedBox(
                           width: 20.0,
                         ),
-                        Container(
-                          height: 150,
-                          width: size.width * 0.5 - 20,
-                          padding: const EdgeInsets.only(left: 5.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(32.0),
-                            color: Theme.of(context).scaffoldBackgroundColor,
-                            boxShadow: [
-                              BoxShadow(
-                                  blurRadius: 12,
-                                  spreadRadius: 8,
-                                  color: Colors.black.withOpacity(0.2))
-                            ],
+                        Stack(clipBehavior: Clip.none, children: [
+                          Container(
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 10, left: 10.0, right: 10.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Device',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontFamily: 'Trueno',
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 17)),
+                                  const SizedBox(
+                                    height: 8.0,
+                                  ),
+                                  Text(
+                                      'Insure your device against any theft or damage that may occur',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontFamily: 'Lato',
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 13)),
+                                  const SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  Text("from Ksh 750/mo",
+                                      style: cardNumberStyle.copyWith(
+                                        color: Colors.black,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w800,
+                                      )),
+                                ],
+                              ),
+                            ),
+                            height: 150,
+                            width: size.width * 0.5 - 20,
+                            padding: const EdgeInsets.only(left: 5.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(32.0),
+                              color: themeData
+                                  ? const Color(0xFFFEC18A)
+                                  // const Color(0xff23b6e6)
+                                  // const Color(0xff02d39a)
+                                  : Theme.of(context).scaffoldBackgroundColor,
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 12,
+                                    spreadRadius: 8,
+                                    color: Colors.black.withOpacity(0.2))
+                              ],
+                            ),
                           ),
-                        ),
+                           Positioned(
+                              left: 30,
+                              top: -20,
+                              // height: 10,
+                              child: Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                    color: Colors.cyanAccent,
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(10.0))),
+                                child: Center(
+                                  child: Icon(FontAwesomeIcons.mobile),
+                                ),
+                              ))
+                        ]),
                       ],
                     ),
                   ),
