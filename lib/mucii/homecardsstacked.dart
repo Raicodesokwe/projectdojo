@@ -26,22 +26,27 @@ class HomeCardsStacked extends StatelessWidget {
       height: 500.0,
       child: Stack(
         children: [
-          Container(
-            height: 140.0,
-            decoration: decorator,
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment:
-                    MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('DIA', style: cardTextStyle),
-                  Text(
-                      r'ksh' +
-                          "${numberFormat.format(27802.05)}",
-                      style: cardNumberStyle),
-                ],
+          GestureDetector(
+            onTap: (){
+               
+            },
+            child: Container(
+              height: 140.0,
+              decoration: decorator,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  mainAxisAlignment:
+                      MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('DIA', style: cardTextStyle),
+                    Text(
+                        r'ksh' +
+                            "${numberFormat.format(27802.05)}",
+                        style: cardNumberStyle),
+                  ],
+                ),
               ),
             ),
           ),
